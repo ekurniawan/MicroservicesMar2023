@@ -12,17 +12,17 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //menambahkan ef
-/*if (builder.Environment.IsDevelopment())
-{*/
+if (builder.Environment.IsDevelopment())
+{
     Console.WriteLine("--> Using SQL Server Database");
     builder.Services.AddDbContext<AppDbContext>(opt =>
     opt.UseSqlServer(builder.Configuration.GetConnectionString("PlatformsConn")));
-/*}
+}
 else
 {
     Console.WriteLine("--> Using In-Memory Database");
     builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("InMem"));
-}*/
+}
 
 builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("InMem"));
 builder.Services.AddScoped<IPlatformRepo, PlatformRepo>();
