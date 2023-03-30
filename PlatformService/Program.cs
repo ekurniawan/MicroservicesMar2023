@@ -12,7 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //menambahkan ef
-if (builder.Environment.IsDevelopment())
+if (!builder.Environment.IsDevelopment())
 {
     Console.WriteLine("--> Using SQL Server Database");
     builder.Services.AddDbContext<AppDbContext>(opt =>
